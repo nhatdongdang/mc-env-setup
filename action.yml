@@ -1,0 +1,36 @@
+name: Start and join Spigot Server
+description: 'A custom GitHub Action to start and join a Spigot server'
+author: nhatdongdang
+
+branding:
+  icon: play
+  color: green
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'oracle' # Specify the distribution of Java
+        java-version: '17' # Specify the version of Java to install
+    
+    # Clone the Minecraft_Tools repository from GitHub, which includes all necessary tools for the Spigot server and player joining
+    - name: Clone Minecraft_Tools
+      run: git clone https://github.com/nhatdongdang/Minecraft_Tools
+      shell: bash
+
+    - name: test
+      run: ls
+      shell: bash
+
+    # Start the Spigot server using terminal commands
+    - name: Start Spigot Server
+      run: $GITHUB_ACTION_PATH/start_spigot.sh
+      shell: bash
+
+    # Join the Spigot server using the precompiled Minecraft-Console-Client (https://github.com/MCCTeam/Minecraft-Console-Client). 
+    # The config file: https://github.com/nhatdongdang/Minecraft_Tools/blob/main/MinecraftClient/MinecraftClient.ini
+    - name: Join Spigot Server
+      run: $GITHUB_ACTION_PATH/join_spigot.sh
+      shell: bash
