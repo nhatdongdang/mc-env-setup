@@ -20,10 +20,6 @@ runs:
       run: git clone https://github.com/nhatdongdang/Minecraft_Tools
       shell: bash
 
-    - name: test
-      run: ls
-      shell: bash
-
     # Start the Spigot server using terminal commands
     - name: Start Spigot Server
       run: $GITHUB_ACTION_PATH/start_spigot.sh
