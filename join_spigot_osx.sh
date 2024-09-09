@@ -1,5 +1,4 @@
-cd Minecraft_Tools
-cd MinecraftClient
+cd Minecraft_Tools/MinecraftClient/osx-x64
 
 touch output.log
 ./MinecraftClient > output.log &
