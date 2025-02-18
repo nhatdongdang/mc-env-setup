@@ -14,7 +14,10 @@ runs:
       with:
         distribution: "oracle" # Specify the distribution of Java
         java-version: "17" # Specify the version of Java to install
-
+    - name: Install dotnet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: "7.0.0"
     # Clone the Minecraft_Tools repository from GitHub, which includes all necessary tools for the Spigot server and player joining
     - name: Clone Minecraft_Tools
       run: git clone https://github.com/nhatdongdang/Minecraft_Tools
